@@ -32,7 +32,6 @@ class Home {
 
 
     }
-
     deliteItem(finance){
 
         //mapear pelo pai
