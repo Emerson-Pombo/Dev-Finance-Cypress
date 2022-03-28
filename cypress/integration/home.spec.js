@@ -11,9 +11,12 @@ describe('Home', () => {
 })
 
 describe('Cadastros', () => {
+
+    beforeEach(() => { 
+        Home.go()
+    });
     it('Cadastrar entradas', () => {
         var finance = homeFactory.finance()
-        Home.go()
         cy.get('#data-table tbody tr').should('have.length', 0);
         Home.fillFormPos(finance)
         cy.get('#data-table tbody tr').should('have.length', 1);
@@ -22,7 +25,6 @@ describe('Cadastros', () => {
 
     it('Cadastrar Saídas', () => {
         var finance = homeFactory.finance()
-        Home.go()
         cy.get('#data-table tbody tr').should('have.length', 0);
         Home.fillFormNeg(finance) 
         cy.get('#data-table tbody tr').should('have.length', 1);
@@ -31,7 +33,6 @@ describe('Cadastros', () => {
 
     it('Cadastrar Entradas e Saídas', () => {
         var finance = homeFactory.finance()
-        Home.go()
         cy.get('#data-table tbody tr').should('have.length', 0);
         Home.fillFormNeg(finance) 
         Home.fillFormPos(finance)
