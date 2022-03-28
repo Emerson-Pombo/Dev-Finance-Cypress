@@ -41,5 +41,45 @@ describe('Cadastrar Entradas e Saidas', () => {
     });
 })
 
+describe('Remover Entradas e Saidas', () => {
+
+    beforeEach(() => { 
+        Home.go()
+    });
+
+    it('Remover Entradas', () => {
+        var finance = homeFactory.finance()
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.fillFormPos(finance)
+        cy.get('#data-table tbody tr').should('have.length', 1);
+        Home.deliteItem(finance);
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.logo()
+    });
+
+    it('Remover Saídas', () => {
+        var finance = homeFactory.finance()
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.fillFormNeg(finance) 
+        cy.get('#data-table tbody tr').should('have.length', 1);
+        Home.deliteItem(finance);
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.logo()
+    });
+
+    it('Remover Entradas e Saídas', () => {
+        var finance = homeFactory.finance()
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.fillFormNeg(finance) 
+        Home.fillFormPos(finance)
+        cy.get('#data-table tbody tr').should('have.length', 2);
+        Home.deliteItem(finance)
+        cy.get('#data-table tbody tr').should('have.length', 1);
+        Home.logo()
+        Home.deliteItem(finance)
+        cy.get('#data-table tbody tr').should('have.length', 0);
+        Home.logo()
+    });
+});
 
 

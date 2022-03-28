@@ -32,6 +32,20 @@ class Home {
 
 
     }
+
+    deliteItem(finance){
+
+        //mapear pelo pai
+        // cy.contains(finance.descricao)
+        // .parent()
+        // .find('img[onclick*=remove]').click(); 
+
+        //mapear pelo irmao
+        cy.contains(finance.descricao)
+        .siblings()
+        .children('img[onclick*=remove]').click(); 
+        
+    }
     
 }
 export default new Home;
