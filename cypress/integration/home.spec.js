@@ -10,7 +10,7 @@ describe('Home', () => {
     
 })
 
-describe('Cadastros', () => {
+describe('Cadastrar Entradas e Saidas', () => {
 
     beforeEach(() => { 
         Home.go()
