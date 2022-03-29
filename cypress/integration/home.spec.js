@@ -83,3 +83,23 @@ describe('Remover Entradas e Saidas', () => {
 });
 
 
+describe.only('Validar saldo com diversas transações', () => {
+
+    beforeEach(() => { 
+        Home.go()
+    });
+
+    it('Validar Saldo', () => {
+        var finance = homeFactory.finance()
+        cy.get('#data-table tbody tr').should('have.length', 2);
+        Home.fillFormPos(finance)
+        cy.get('#data-table tbody tr').should('have.length', 3);
+        Home.fillFormPos2(finance)
+        cy.get('#data-table tbody tr').should('have.length', 4);
+        Home.fillFormNeg(finance);
+        cy.get('#data-table tbody tr').should('have.length', 5);
+        Home.logo();
+
+        Home.verificarTotal();
+    });
+});
