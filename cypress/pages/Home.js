@@ -76,8 +76,9 @@ class Home {
             let formattedTotalDisplay = format(text);
             formattedTotalDisplay = formattedTotalDisplay.toFixed(2);
             let expectTotal = (incomes + expenses);
-            expectTotal = expectTotal.toFixed(2)
-            expect(formattedTotalDisplay).to.equal(expectTotal)
+            expectTotal = expectTotal.toFixed(2);
+
+            expect(""+formattedTotalDisplay+"").to.equal(""+expectTotal+"")
         }); 
     }
     

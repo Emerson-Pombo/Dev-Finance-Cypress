@@ -10,7 +10,7 @@ export const format = (value) => {
 }
 
 export const randonNumber = () => {
-    return Math.floor(Math.random()*200)
+    return Math.floor(Math.random()*400)
 }
 
 export const prepareLocalStorange = (win) => {
