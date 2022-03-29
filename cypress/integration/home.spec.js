@@ -17,26 +17,26 @@ describe('Cadastrar Entradas e Saidas', () => {
     });
     it('Cadastrar entradas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormPos(finance)
-        cy.get('#data-table tbody tr').should('have.length', 1);
+        cy.get('#data-table tbody tr').should('have.length', 3);
         Home.logo()
     });
 
     it('Cadastrar Saídas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormNeg(finance) 
-        cy.get('#data-table tbody tr').should('have.length', 1);
+        cy.get('#data-table tbody tr').should('have.length', 3);
         Home.logo()
     });
 
     it('Cadastrar Entradas e Saídas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormNeg(finance) 
         Home.fillFormPos(finance)
-        cy.get('#data-table tbody tr').should('have.length', 2);
+        cy.get('#data-table tbody tr').should('have.length', 4);
         Home.logo()
     });
 })
@@ -49,41 +49,41 @@ describe('Remover Entradas e Saidas', () => {
 
     it('Remover Entradas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormPos(finance)
-        cy.get('#data-table tbody tr').should('have.length', 1);
+        cy.get('#data-table tbody tr').should('have.length', 3);
         Home.deliteItem(finance);
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.logo()
     });
 
     it('Remover Saídas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormNeg(finance) 
-        cy.get('#data-table tbody tr').should('have.length', 1);
+        cy.get('#data-table tbody tr').should('have.length', 3);
         Home.deliteItem(finance);
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.logo()
     });
 
     it('Remover Entradas e Saídas', () => {
         var finance = homeFactory.finance()
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.fillFormNeg(finance) 
         Home.fillFormPos(finance)
-        cy.get('#data-table tbody tr').should('have.length', 2);
+        cy.get('#data-table tbody tr').should('have.length', 4);
         Home.deliteItem(finance)
-        cy.get('#data-table tbody tr').should('have.length', 1);
+        cy.get('#data-table tbody tr').should('have.length', 3);
         Home.logo()
         Home.deliteItem(finance)
-        cy.get('#data-table tbody tr').should('have.length', 0);
+        cy.get('#data-table tbody tr').should('have.length', 2);
         Home.logo()
     });
 });
 
 
-describe.only('Validar saldo com diversas transações', () => {
+describe('Validar saldo com diversas transações', () => {
 
     beforeEach(() => { 
         Home.go()
