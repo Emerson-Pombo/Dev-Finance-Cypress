@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Emerson-Pombo/Dev-Finance-Cypress#readme",
   "devDependencies": {
-    "cypress": "^9.5.2",
+    "cypress": "^9.5.3",
     "faker": "^5.5.3"
   }
 }
