@@ -83,7 +83,7 @@ describe('Remover Entradas e Saidas', () => {
 });
 
 
-describe.only('Validar saldo com diversas transações', () => {
+describe('Validar saldo com diversas transações', () => {
 
     beforeEach(() => { 
         Home.go()
