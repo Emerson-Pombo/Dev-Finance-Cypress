@@ -81,6 +81,52 @@ class Home {
             expect(""+formattedTotalDisplay+"").to.equal(""+expectTotal+"")
         }); 
     }
+
+    //cadastro sem descrição
+    fillFormPosDes(finance) {
+        cy.get('section#transaction a.button.new').click();
+        //cy.get('[name=description]').type(finance.descricao);
+        cy.get('[name=amount]').type(finance.valor);
+        cy.get('[name=date]').type(finance.data);
+        cy.get('button').contains('Salvar').click();
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
+          }) 
+    }
+    //cadastro sem valor
+    fillFormPosVal(finance) {
+        cy.get('section#transaction a.button.new').click();
+        cy.get('[name=description]').type(finance.descricao);
+        //cy.get('[name=amount]').type(finance.valor);
+        cy.get('[name=date]').type(finance.data);
+        cy.get('button').contains('Salvar').click();
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
+          }) 
+    }
+    //cadastro sem data
+    fillFormPosDate(finance) {
+        cy.get('section#transaction a.button.new').click();
+        cy.get('[name=description]').type(finance.descricao);
+        cy.get('[name=amount]').type(finance.valor);
+        //cy.get('[name=date]').type(finance.data);
+        cy.get('button').contains('Salvar').click();
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
+          }) 
+    }
+    //cadastro sem NADA
+    fillFormPosNan(finance) {
+        cy.get('section#transaction a.button.new').click();
+        //cy.get('[name=description]').type(finance.descricao);
+        //cy.get('[name=amount]').type(finance.valor);
+        //cy.get('[name=date]').type(finance.data);
+        cy.get('button').contains('Salvar').click();
+        cy.on('window:alert', (str) => {
+            expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
+          }) 
+    }
+
     
 }
 export default new Home;

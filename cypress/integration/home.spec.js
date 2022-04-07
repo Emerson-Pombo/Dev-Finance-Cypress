@@ -103,3 +103,25 @@ describe('Validar saldo com diversas transações', () => {
         Home.verificarTotal();
     });
 });
+
+describe.only('Cadastrar sem preencher os valores obrigatórios', () => {
+    beforeEach(() => { 
+        Home.go()
+    });
+    it('Cadastrar sem preencher a descrição', () => {
+        var finance = homeFactory.finance()
+        Home.fillFormPosDes(finance);
+    });
+    it('Cadastrar sem preencher o valor', () => {
+        var finance = homeFactory.finance()
+        Home.fillFormPosVal(finance);
+    });
+    it('Cadastrar sem preencher a data', () => {
+        var finance = homeFactory.finance()
+        Home.fillFormPosDate(finance);
+    });
+    it('Cadastrar sem preencher a data', () => {
+        var finance = homeFactory.finance()
+        Home.fillFormPosNan(finance);
+    });
+});
