@@ -104,7 +104,7 @@ describe('Validar saldo com diversas transações', () => {
     });
 });
 
-describe.only('Cadastrar sem preencher os valores obrigatórios', () => {
+describe('Cadastrar sem preencher os valores obrigatórios', () => {
     beforeEach(() => { 
         Home.go()
     });
@@ -120,8 +120,9 @@ describe.only('Cadastrar sem preencher os valores obrigatórios', () => {
         var finance = homeFactory.finance()
         Home.fillFormPosDate(finance);
     });
-    it('Cadastrar sem preencher a data', () => {
+    it('Cadastrar sem preencher nenhum campo', () => {
         var finance = homeFactory.finance()
         Home.fillFormPosNan(finance);
+        
     });
 });

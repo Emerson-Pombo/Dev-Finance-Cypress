@@ -91,7 +91,8 @@ class Home {
         cy.get('button').contains('Salvar').click();
         cy.on('window:alert', (str) => {
             expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
-          }) 
+          })
+        cy.get('a.button.cancel').click();
     }
     //cadastro sem valor
     fillFormPosVal(finance) {
@@ -103,6 +104,7 @@ class Home {
         cy.on('window:alert', (str) => {
             expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
           }) 
+        cy.get('a.button.cancel').click();
     }
     //cadastro sem data
     fillFormPosDate(finance) {
@@ -114,6 +116,7 @@ class Home {
         cy.on('window:alert', (str) => {
             expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
           }) 
+        cy.get('a.button.cancel').click();
     }
     //cadastro sem NADA
     fillFormPosNan(finance) {
@@ -125,6 +128,8 @@ class Home {
         cy.on('window:alert', (str) => {
             expect(str).to.equal(`Por favor, preencha todos os campos corretamente`)
           }) 
+        
+        cy.get('a.button.cancel').click();
     }
 
     
